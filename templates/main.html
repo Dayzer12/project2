@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СтройПомощь</title>
+</head>
+<body>
+        
+    <h1>СтройПомощь</h1>
+
+   
+
+        {% if user_name %}
+        <div class="navdar">
+        <a href="{{url_for('profile')}}">Профиль</a>
+        <a href="{{url_for('logout')}}">Выйти</a>
+        </div>
+{% else %}
+<header class="navbar"> 
+<div class="nav-links-left"> 
+<a href="{{url_for('register')}}">Регистрация</a> 
+<a href="{{url_for('Uslugi')}}">Услуги</a> 
+</div> 
+<div class="nav-links-center"> 
+<a href="{{url_for('Contacts')}}">Контакты</a>
+<a href="{{url_for('add_post')}}">Написать пост</a> 
+</div> 
+<div class="nav-links-right"> 
+<a href="{{url_for('login')}}">Вход</a> 
+<a href="{{url_for('o_nas')}}">О нас</a> 
+{% endif %}
+</div> 
+
+
+
+</header>
+</body>
+</html>
+
+
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+        }
+        header {
+            background-color: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        
+        
+        
+        .header {
+            margin-top: 0;
+            padding-top: 10px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .vertical-header {
+            display: flex;
+            flex-direction: column;
+        }
+            .btn-Contacts { 
+            display: inline-block; 
+            padding: 8px 16px; 
+            background-color: #eba626; 
+            color: #000000; 
+            border: 1px solid #eba626; border-radius: 4px;
+    text-decoration: none;
+        font-family: sans-serif; 
+        font-size: 14px;
+
+        }
+        .auth-bar {
+            display:flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            position: absolute top 0;
+
+        }
+        .btn-register { 
+            display: inline-block; 
+            padding: 8px 16px; 
+            background-color: #eba626; 
+            color: #000000; 
+            border: 1px solid #eba626; border-radius: 4px;
+    text-decoration: none;
+        font-family: sans-serif; 
+        font-size: 14px;
+        }
+
+        .navbar {
+        background-color: #1e2229;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        height: 40px;
+        overflow: hidden;
+        
+        }
+        .navbar {
+        color:white ;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0 20px;
+        line-height: 40px;   
+        }
+        
+
+        .navdar {
+        color:white ;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0 20px;
+        line-height: 40px;   
+        }
+
+
+
+
+        .card-img {
+        width: 230px;
+        height:  230px;
+        display: block;
+        margin: 0 auto 20px auto;
+        }
+       
+    
+       
+
+
+
+
+
+       .foundation-section {
+        background-color: #e5e5e5;
+        padding: 80px 0; 
+        width: 100%; 
+        font-family: arial, sans-serif;
+        margin-bottom: 130px;
+        margin-top: 150px;
+       }
+
+        .foundation-container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 50px; 
+        padding: 0 20px;
+        }
+        
+
+         .image-composite {
+          position: relative; 
+          width: 500px; 
+          height: 450px; 
+         }
+
+        .image-composite img { 
+            position: absolute; 
+            border: 3px solid #222222;
+            object-fit: cover; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+        }
+        
+        .img-top { 
+        top: 20px; 
+        left: 40px; 
+        width: 320px; 
+        height: 220px; 
+        z-index: 3;
+        }
+
+       .img-bottom { 
+        bottom: 20px; 
+        left: 0; 
+        width: 380px; 
+        height: 240px;
+        z-index: 4;
+       }
+
+       .yellow-badge { 
+    position: absolute; 
+    background-color: #c5a880;  
+    width: 300px; 
+    height: 400px; 
+    top: 0; 
+    left: 100px; 
+    z-index: 1;
+       }
+
+       .text-content { 
+        flex: 1; 
+        max-width: 600px; 
+    } 
+    .text-content h2 {
+     font-size: 32px; 
+     color: #111; 
+     margin-bottom: 25px; 
+     font-weight: bold; 
+     letter-spacing: 1px
+    }
+
+    .text-content p { 
+    font-size: 15px; 
+    line-height: 1.6; 
+    color: #333; 
+    margin-bottom: 15px; 
+   }
+
+   .tags-containerg {
+    display: flex;
+    gap: 10px;
+    font-family: sans-serif;
+   }
+
+   .tag-cubo {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px slategray;
+    color: #35424a;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    
+   }
+
+
+
+
+
+
+
+       .oblicovca-section {
+        background-color: #e5e5e5;
+        padding: 80px 0; 
+        width: 100%; 
+        font-family: arial, sans-serif;
+        margin-bottom: 130px;
+         
+       }
+
+        .oblicovca-container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 50px;
+        padding: 0 20px;
+        }
+        
+
+         .image-composita {
+          position: relative; 
+          width: 500px; 
+          height: 450px; 
+         }
+
+        .image-composita img { 
+            position: absolute; 
+            border: 3px solid #222222;
+            object-fit: cover; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+        }
+        
+        .img-tup { 
+        top: 20px; 
+        left: 40px; 
+        width: 320px; 
+        height: 220px; 
+        z-index: 3;
+        }
+
+       
+
+       .blue-badge { 
+    position: absolute; 
+    background-color: #c5a880;  
+    width: 300px; 
+    height: 400px; 
+    top: 0; 
+    left: 100px; 
+    z-index: 1;
+       }
+
+       .text-contenta { 
+        flex: 1; 
+        max-width: 600px; 
+    } 
+    .text-contenta h2 {
+     font-size: 32px; 
+     color: #111; 
+     margin-bottom: 25px; 
+     font-weight: bold; 
+     letter-spacing: 1px
+    }
+
+    .text-contenta p { 
+    font-size: 15px; 
+    line-height: 1.6; 
+    color: #333; 
+    margin-bottom: 15px; 
+   }
+
+   
+
+   .tags-container {
+    display: flex;
+    gap: 10px;
+    font-family: sans-serif;
+   }
+
+   .tag-cube {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px slategray;
+    color: #35424a;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    
+   }
+
+
+
+
+
+
+
+
+    .crovla-section {
+        background-color: #e5e5e5;
+        padding: 80px 0; 
+        width: 100%; 
+        font-family: arial, sans-serif;
+        margin-bottom: 130px;
+       }
+
+        .crovla-container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 50px; 
+        padding: 0 20px;
+        }
+        
+
+         .image-composito {
+          position: relative; 
+          width: 500px; 
+          height: 450px; 
+         }
+
+        .image-composito img { 
+            position: absolute; 
+            border: 3px solid #222222;
+            object-fit: cover; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+        }
+        
+        .img-tap { 
+        top: 20px; 
+        left: 40px; 
+        width: 320px; 
+        height: 220px; 
+        z-index: 3;
+        }
+
+       .img-battom { 
+        bottom: 20px; 
+        left: 0; 
+        width: 380px; 
+        height: 240px;
+        z-index: 4;
+       }
+
+       .green-badge { 
+    position: absolute; 
+    background-color: #c5a880;  
+    width: 300px; 
+    height: 400px; 
+    top: 0; 
+    left: 100px; 
+    z-index: 1;
+       }
+
+       .text-contentu { 
+        flex: 1; 
+        max-width: 600px;
+        
+    } 
+    .text-contentu h2 {
+     font-size: 32px; 
+     color: #111; 
+     margin-bottom: 25px; 
+     font-weight: bold; 
+     letter-spacing: 1px
+    }
+
+    .text-contentu p { 
+    font-size: 15px; 
+    line-height: 1.6; 
+    color: #333; 
+    margin-bottom: 15px; 
+   }
+
+   .order-btn { 
+    display: inline-block; 
+    margin-top: 20px; 
+    color: #111; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 14px; 
+    border-bottom: 2px dashed #d4af37;  
+    padding-bottom: 5px; 
+    transition: color 0.2s
+   }
+
+   .order-button:hover { 
+    color: #d4af37;
+   }
+
+   .tags-containera {
+    display: flex;
+    gap: 10px;
+    font-family: sans-serif;
+   }
+
+   .tag-cabe {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px slategray;
+    color: #35424a;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    
+   }
+
+
+
+
+        .otdelca-section {
+        background-color: #e5e5e5;
+        padding: 80px 0; 
+        width: 100%; 
+        font-family: arial, sans-serif;
+        
+       }
+
+        .otdelca-container {
+        max-width: 1200px; 
+        margin: 0 auto; 
+        display: flex; 
+        align-items: center; 
+        justify-content: space-between; 
+        gap: 50px; 
+        padding: 0 20px;
+        }
+        
+
+         .image-compositq {
+          position: relative; 
+          width: 500px; 
+          height: 450px; 
+         }
+
+        .image-compositq img { 
+            position: absolute; 
+            border: 3px solid #222222;
+            object-fit: cover; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+        }
+        
+        .img-tip { 
+        top: 20px; 
+        left: 40px; 
+        width: 320px; 
+        height: 220px; 
+        z-index: 3;
+        }
+
+       .img-bittom { 
+        bottom: 20px; 
+        left: 0; 
+        width: 380px; 
+        height: 240px;
+        z-index: 4;
+       }
+
+       .purple-badge { 
+    position: absolute; 
+    background-color: #c5a880;  
+    width: 300px; 
+    height: 400px; 
+    top: 0; 
+    left: 100px; 
+    z-index: 1;
+       }
+
+       .text-contenti { 
+        flex: 1; 
+        max-width: 600px;
+        
+    } 
+    .text-contenti h2 {
+     font-size: 32px; 
+     color: #111; 
+     margin-bottom: 25px; 
+     font-weight: bold; 
+     letter-spacing: 1px
+    }
+
+    .text-contenti p { 
+    font-size: 15px; 
+    line-height: 1.6; 
+    color: #333; 
+    margin-bottom: 15px; 
+   }
+
+   .order-btn { 
+    display: inline-block; 
+    margin-top: 20px; 
+    color: #111; 
+    text-decoration: none; 
+    font-weight: bold; 
+    font-size: 14px; 
+    border-bottom: 2px dashed #d4af37;  
+    padding-bottom: 5px; 
+    transition: color 0.2s
+   }
+
+   .order-button:hover { 
+    color: #d4af37;
+   }
+
+   .tags-containerp {
+    display: flex;
+    gap: 10px;
+    font-family: sans-serif;
+   }
+
+   .tag-cabo {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px slategray;
+    color: #35424a;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: transparent;
+    
+   }
+
+
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+ 
+
+
+
+
+<section class="foundation-section"> 
+<div class="foundation-container"> 
+<div class="image-composite"> 
+<div class="yellow-badge"></div> 
+<img src="{{ url_for('static', filename='images/fundament.jpg') }}" class="img-top" alt="Заливка фундамента"> 
+<img src="{{ url_for('static', filename='images/fundament2.jpg') }}" class="img-bottom" alt="Готовый фундамент"> 
+</div>
+
+<div class="text-content"> 
+<h2>Заливка фундамента дома</h2>
+<p>заливка фундамента дома в грозном является одним из важнейших этапов работы, так как в дальнейшем исправить фундамент, который неправильно сделали, будет стоить не только существенных расходов, но и займет много времени.</p>
+<p>также, во время подготовки фундамента дома, производится прокладка труб и части коммуникаций, что также добавляет серьезности данному этапу работ.</p>
+<p>наши специалисты наловчились заливать фундамент точно по необходимой технологии и с расчетом на будущий проект дома.</p>
+<p>Фундамент делают из следующих материалов</p>
+
+<div class="tags-containerg">
+<span class="tag-cubo">Бетон</span>
+<span class="tag-cubo">Арматура</span>
+<span class="tag-cubo">Вспомогательные материалы</span>
+</div>
+
+</div> 
+</div> 
+</section>
+
+
+
+
+
+
+
+
+
+<section class="oblicovca-section"> 
+<div class="oblicovca-container"> 
+<div class="image-composita"> 
+<div class="blue-badge"></div> 
+<img src="{{ url_for('static', filename='images/oblicovca.jpg') }}" class="img-tup" alt="Фасадная отделка домов"> 
+</div>
+
+<div class="text-contenta">
+    <h2>Фасадная отделка дома</h2>
+    <p>Фасадные работы являются достаточно широким понятием, так как могут включать в себя не только наружную отделку дома, но и иногда некоторые кровельные работы. </p>
+    <p>С помощью фасадных работ можно улучшить тепло- и звукоизоляцию, продлить срок эксплуатации, отремонтировать проблемные и восстановить разрушенные части наружной поверхности здания, изменить облик и цвет.</p>
+    <p>Все виды фасадных работ производятся с использованием передовых технологий и качественных материалов, отвечающих особенностям климатических условий, соответствующих строительным нормам и правилам, исходя из индивидуальных пожеланий заказчиков.</p>
+    <p>Мы рекомендуем использовать следующие фасадные отделочные работы</p>
+
+    <div class="tags-container">
+        <span class="tag-cube">Отделка декоративным камнем</span>
+        <span class="tag-cube">Облицовка клинкером</span>
+        <span class="tag-cube">Облицовка кирпичом</span>
+        <span class="tag-cube">Облицовка керамогранитом</span>
+    </div>
+</div>
+</section>
+
+
+
+
+
+
+<section class="crovla-section"> 
+<div class="crovla-container"> 
+<div class="image-composito"> 
+<div class="green-badge"></div> 
+<img src="{{ url_for('static', filename='images/crowla.jpg') }}" class="img-tip" alt="Кровельные работы">
+<img src="{{ url_for('static', filename='images/crovla.png') }}" class="img-bittom" alt=""> 
+</div>
+
+<div class="text-contentu">
+    <h2>Кровельные работы</h2>
+    <p>Монтаж кровли – ключевое направление в деятельности нашей компании. Используя современные материалы и передовые технологии, мы оказываем услуги монтажа крыши для частных домов, коттеджей, административных центров, сооружений промышленного назначения. Мы делаем это давно и заслуженно считаемся профессионалами своего дела.</p>
+    <p>Крыша – один из самых важных элементов строений. Она ограждает от пагубного воздействия окружающей среды, негативного влияния атмосферных явлений, способствует увеличению срока эксплуатации здания, сохраняет его целостность.</p>
+    <p>Кровля должна быть водонепроницаемой, прочной, устойчивой к разрушающим воздействиям погоды.</p>
+    <p>Советуем монтаж кровли следующих видов</p>
+
+
+<div class="tags-containera">
+        <span class="tag-cabe">Мягкая кровля</span>
+        <span class="tag-cabe">Металлочерепица</span>
+        <span class="tag-cabe">Керамическая черепица</span>
+        
+    </div>
+</div>
+</section>
+
+
+
+
+
+<section class="otdelca-section"> 
+<div class="otdelca-container"> 
+<div class="image-compositq"> 
+<div class="purple-badge"></div> 
+<img src="{{ url_for('static', filename='images/otdelca.jpg') }}" class="img-tap" alt="Внутренние отделочные работы">
+</div>
+
+<div class="text-contenti">
+    <h2>Внутренние отделочные работы</h2>
+    <p>Внутренняя отделка дома этап важный, поскольку это отличная возможность продемонстрировать окружающим ваши вкусы и характер. Но для этого отделочные работы должны выполняться опытным специалистом, поскольку потребуется не только поработать руками, создавая первичную и финишную отделку, но реализовать стиль, разработанный в дизайн-проекте.</p>
+    <p>Внутренние отделочные работы начинаются следом за общестроительными работами, включающими устройство перекрытий, кровли, установку перегородок, устройство дверных и оконных проемов, и после устройства инженерных сетей (канализация, отопление, электропроводка). Отделка дома подразумевает работы по утеплению, стяжку полов, штукатурные работы, монтаж санитарно-технического оборудования, монтаж окон и дверей, остекление и покраску или оклейку стен, потолков. Настилка паркета или линолеума проводится после малярного этапа.</p>
+    <p>На данное время дизайн внутренних отделочных работ популярен и надежен именно эти</p>
+
+
+<div class="tags-containerp">
+        <span class="tag-cabo">Отделка стен: ставка на глубину и архитектурность</span>
+        <span class="tag-cabo">Напольные покрытия:изностойкость без порогов</span>
+        <span class="tag-cabo">Потолки и двери:визуальное расширение пространства</span>
+        <span class="tag-cabo">Камень в интерьере:акриловый камень и кварцувый агломерат</span>
+    </div>
+</div>
+</section>
+
+
+
+
+</body>
+</html>

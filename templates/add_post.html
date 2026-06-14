@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body { font-family: arial, sans-serif; background-color: #f4f7f6; margin: 40px; }
+
+    .container { max-width: 600px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 0 auto; } 
+    h2, h3 { color: #333; margin-top: 0; } 
+    .form-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; } 
+    label { font-weight: bold; color: #555; }
+    input[type="text"], 
+    textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; } 
+    textarea { resize: vertical; min-height: 100px; } 
+    button { background-color: #007bff; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 4px; cursor: pointer; width: 100%; } 
+    button:hover { background-color: #0056b3; }
+    .post-card { background: #f9f9f9; padding: 15px; margin-top: 15px; border-radius: 6px; border: 1px solid #ddd; } 
+    .delete-btn { color: red; text-decoration: none; font-size: 14px; display: inline-block; margin-top: 10px; } 
+    .delete-btn:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    
+
+
+<div class="container">
+<h2>оставить мнение / добавить пост</h2> 
+<form action="/add_post" method="POST"> 
+<div class="form-group"> 
+<label for="title">заголовок</label> 
+<input type="text" id="title" name="title" required placeholder="введите заголовок..."> 
+</div>
+<div class="form-group"> 
+<label for="content">содержание</label> 
+<textarea id="content" name="content" required placeholder="напишите ваше мнение..."></textarea> 
+</div> 
+<button type="submit">опубликовать пост</button> 
+</form> 
+<hr style="margin: 30px 0; border: 0; border-top: 1px solid #ccc;">
+<h3>все отзывы и посты на этой странице:</h3> 
+{% for post in posts %} 
+<div class="post-card"> 
+<h4>{{ post[1] }}</h4> 
+<p>{{ post[2] }}</p> 
+<small style="color: #666;">автор: <strong>{{ post[3] }}</strong></small> 
+{% if post[3] == user_name %} 
+<br> 
+<a class="delete-btn" href="/delete_post/{{ post[0] }}">удалить пост x</a> 
+{% endif %}
+</div>
+{% else %} 
+<p style="color: #777;">мнений пока никто не оставил. будьте первым!</p> 
+{% endfor %} 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+</head>
+<body>
+    <header>
+    <h1>Профиль</h1>
+    </header>
+    <div class="profile-link">
+     <a href="{{url_for('main')}}" class="profile-link">Главная</a>
+     <a href="{{url_for('add_post')}}" class="profile-link">Новый пост</a>
+     <a href="{{url_for('logout')}}" class="profile-link">Выйти из аккаунта</a>
+     <a href="{{ url_for('delete_account') }}" class="profile-link">Удалить аккаунт</a>
+    </div>
+</body>
+</html>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .profile-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+        }
+        .profile-header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .profile-header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .profile-header p {
+            margin: 5px 0;
+            color: #777;
+        }
+        .about {
+            margin-top: 20px;
+        }
+        .about h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .about p {
+            line-height: 1.5;
+        }
+        .profile-link { 
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        padding: 20px 0; 
+        border-bottom: 1px solid #eee;
+        margin-bottom: 20px; 
+    }
+        .profile-nav a {
+        text-decoration: none;
+        font-family: sans-serif;
+        font-size: 14px;
+        color: #555;
+        transition: 0.3s; 
+     }
+       .profile-nav a:hover {
+        color: #000; 
+     }  
+       .profile-nav .delete-link {
+        color: #cc0000;
+        opacity: 0.7; 
+    }
+    .profile-nav .delete-link:hover {
+    opacity: 1;
+    color: #ff0000; }
+        
+    .profile-link {
+        background-color: #004a99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        height: 40px;
+        overflow: hidden;
+        
+        }
+        .profile-link {
+        color:white ;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0 20px;
+        line-height: 40px;   
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="https://via.placeholder.com/100" alt="Фотография профиля">
+        <div>
+            <h1>Махди Расукаев</h1>
+            <p>аргун, Россия</p>
+            <p>Возраст: 14 лет</p>
+        </div>
+    </div>
+    
+    <div class="about">
+        <h2>О себе</h2>
+        <p>Меня зовут Махди я увлекась программированием </p>
+    </div>
+</div>
+
+</body>
+</html>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#acaba7}
+        </style>
+   
